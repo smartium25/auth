@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)file:///C:/Users/maxic/OneDrive/Documents/Smart-Ecosystem/Kn-Foundation%20Update%202.0/html/index.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kn Foundation Account</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+
+    background: #1b1b1b;
+
+    border: 1px solid #333;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+}
+
+/* =========================
+   CABECERA
+========================= */
+
+.header {
+    padding: 20px 25px;
+
+    border-bottom: 1px solid #333;
+
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+
+    margin-right: 12px;
+}
+
+.brand-name {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.brand-subtitle {
+    margin-top: 2px;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+
+.main {
+    padding: 30px 25px;
+}
+
+.layout {
+    display: grid;
+
+    grid-template-columns: 1fr 180px 1fr;
+
+    gap: 35px;
+
+    align-items: start;
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+.presentation h1 {
+    margin: 5px 0 10px;
+
+    font-size: 38px;
+
+    line-height: 1.1;
+}
+
+.presentation p {
+    margin: 0;
+
+    color: #999;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+/* =========================
+   FOTO
+========================= */
+
+.profile {
+    text-align: center;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+
+    display: block;
+
+    margin: 5px auto 15px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background: #292929;
+
+    border: 2px solid #444;
+}
+
+.profile button {
+    padding: 9px 12px;
+
+    border: 1px solid #444;
+
+    border-radius: 8px;
+
+    background: #292929;
+
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.profile button:hover {
+    background: #333;
+}
+
+.profile-note {
+    margin-top: 8px;
+
+    color: #777;
+
+    font-size: 10px;
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+.auth-box {
+    transform: translateY(-18px);
+}
+
+.form {
+    display: none;
+}
+
+.form.active {
+    display: block;
+}
+
+.form h2 {
+    margin: 0 0 18px;
+
+    font-size: 24px;
+}
+
+.field {
+    margin-bottom: 13px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #ccc;
+
+    font-size: 13px;
+}
+
+input {
+    width: 100%;
+
+    height: 44px;
+
+    padding: 0 12px;
+
+    border: 1px solid #444;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: #fff;
+
+    outline: none;
+
+    font-size: 14px;
+}
+
+input:focus {
+    border-color: #666;
+}
+
+.primary-button {
+    width: 100%;
+
+    height: 44px;
+
+    margin-top: 3px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: #ddd;
+}
+
+.form-switch {
+    margin-top: 14px;
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 12px;
+}
+
+.form-switch span {
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.form-switch span:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   MENSAJES
+========================= */
+
+.message {
+    display: none;
+
+    padding: 10px 12px;
+
+    margin-bottom: 13px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
+
+.message.show {
+    display: block;
+}
+
+.error {
+    background: #35191d;
+
+    border: 1px solid #6d2931;
+
+    color: #ffb8bf;
+}
+
+.success {
+    background: #19301f;
+
+    border: 1px solid #315e3d;
+
+    color: #a8e5b5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    min-height: 58px;
+
+    padding: 0 25px;
+
+    border-top: 1px solid #333;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.footer-left {
+    color: #666;
+
+    font-size: 11px;
+}
+
+.footer-right {
+    display: flex;
+
+    gap: 20px;
+}
+
+.footer-link {
+    padding: 0;
+
+    border: 0;
+
+    background: none;
+
+    color: #999;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(0,0,0,.7);
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 500px;
+
+    padding: 22px;
+
+    background: #1b1b1b;
+
+    border: 1px solid #444;
+
+    border-radius: 12px;
+}
+
+.modal-box h2 {
+    margin: 0 0 12px;
+
+    font-size: 21px;
+}
+
+.modal-box p {
+    margin: 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+.modal-button {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 11px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #111;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .layout {
+        grid-template-columns: 1fr 160px;
+    }
+
+    .presentation {
+        grid-column: 1 / -1;
+    }
+
+    .auth-box {
+        transform: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .main {
+        padding: 25px 20px;
+    }
+
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .profile {
+        order: -1;
+    }
+
+    .auth-box {
+        transform: none;
+    }
+
+    .presentation {
+        text-align: center;
+    }
+
+    .footer {
+        padding: 15px 20px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .footer-right {
+        gap: 16px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- CABECERA -->
+
+    <header class="header">
+
+        <img src="file:///C:/Users/maxic/OneDrive/Documents/Smart-Ecosystem/Kn-Foundation%20Update%202.0/html/Kn.png" class="logo" alt="Kn Foundation">
+
+        <div>
+
+            
+
+            
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTENIDO -->
+
+    <main class="main">
+
+        <section id="authSection">
+
+            <div class="layout">
+
+                <!-- INFORMACIÓN -->
+
+                <div class="presentation">
+
+                    <h1>
+                        Kn Foundation Account
+                    </h1>
+
+                    <p>
+                        Utiliza tu cuenta de Kn Foundation
+                        para acceder a tus aplicaciones. Cifrado, simple y seguro.
+                    </p>
+
+                </div>
+
+
+                <!-- FOTO -->
+
+                <div class="profile">
+
+                    <img id="profilePreview" class="profile-image ai-style-change-1" src="file:///C:/Users/maxic/OneDrive/Documents/Smart-Ecosystem/Kn-Foundation%20Update%202.0/html/Kn.png" alt="Foto de perfil">
+
+                    <button type="button" onclick="
+                            document
+                            .getElementById(&#39;profilePicture&#39;)
+                            .click()
+                        ">
+                        Seleccionar foto
+                    </button>
+
+                    
+
+                    <input id="profilePicture" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden="">
+
+                </div>
+
+
+                <!-- AUTENTICACIÓN -->
+
+                <div class="auth-box">
+
+                    <!-- LOGIN -->
+
+                    <form id="loginForm" class="form active">
+
+                        
+
+                        <div id="loginError" class="message error"></div>
+
+                        <div id="loginSuccess" class="message success"></div>
+
+                        <div class="field">
+
+                            <label for="loginUsername">
+                                Nombre de usuario
+                            </label>
+
+                            <input id="loginUsername" type="text" autocomplete="username" placeholder="Username" required="">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="loginPassword">
+                                Contraseña
+                            </label>
+
+                            <input id="loginPassword" type="password" autocomplete="current-password" placeholder="Password" required="">
+
+                        </div>
+
+                        <button type="submit" class="primary-button">
+                            Iniciar sesión
+                        </button>
+
+                        <div class="form-switch">
+
+                            ¿No tienes una cuenta?
+
+                            <span onclick="showRegister()">
+                                Crear cuenta
+                            </span>
+
+                        </div>
+
+                    </form>
+
+
+                    <!-- REGISTRO -->
+
+                    <form id="registerForm" class="form">
+
+                        
+
+                        <div id="registerError" class="message error"></div>
+
+                        <div id="registerSuccess" class="message success"></div>
+
+                        <div class="field">
+
+                            <label for="registerUsername">
+                                Nombre de usuario
+                            </label>
+
+                            <input id="registerUsername" type="text" autocomplete="username" placeholder="Username" minlength="3" maxlength="32" required="">
+
+                        </div>
+
+                        <div class="field">
+
+                            <label for="registerPassword">
+                                Contraseña
+                            </label>
+
+                            <input id="registerPassword" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" minlength="8" maxlength="128" required="">
+
+                        </div>
+
+                        <button type="submit" class="primary-button">
+                            Crear cuenta
+                        </button>
+
+                        <div class="form-switch">
+
+                            ¿Ya tienes una cuenta?
+
+                            <span onclick="showLogin()">
+                                Iniciar sesión
+                            </span>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-left">
+            © Kn Foundation
+        </div>
+
+        <div class="footer-right">
+
+            <button class="footer-link" onclick="openInfo(&#39;privacy&#39;)">
+                Privacidad
+            </button>
+
+            <button class="footer-link" onclick="openInfo(&#39;terms&#39;)">
+                Términos
+            </button>
+
+            <button class="footer-link" onclick="openInfo(&#39;help&#39;)">
+                Ayuda
+            </button>
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- MODAL -->
+
+<div id="infoModal" class="modal" onclick="closeInfoOutside(event)">
+
+    <div class="modal-box" onclick="event.stopPropagation()">
+
+        <h2 id="infoTitle">Ayuda</h2>
+
+        <p id="infoText">Utiliza tu nombre de usuario y contraseña para iniciar sesión. Los errores aparecerán directamente debajo del formulario.</p>
+
+        <button class="modal-button" onclick="closeInfo()">
+            Cerrar
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   CONFIGURACIÓN
+========================= */
+
+const API_URL =
+    "https://bar-cotton-four-still.trycloudflare.com";
+
+const TOKEN_KEY =
+    "knfoundation_token";
+
+const USER_KEY =
+    "knfoundation_user";
+
+
+/* =========================
+   REDIRECCIÓN
+========================= */
+
+function getRedirectURL() {
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const redirect =
+        params.get("redirect");
+
+    if (!redirect) {
+        return null;
+    }
+
+    try {
+
+        const url =
+            new URL(
+                redirect,
+                window.location.href
+            );
+
+        if (
+            url.protocol !== "http:" &&
+            url.protocol !== "https:"
+        ) {
+            return null;
+        }
+
+        return url.href;
+
+    } catch {
+
+        return null;
+    }
+}
+
+
+function redirectAfterLogin() {
+
+    const redirect =
+        getRedirectURL();
+
+    if (!redirect) {
+        return false;
+    }
+
+    window.location.replace(
+        redirect
+    );
+
+    return true;
+}
+
+
+/* =========================
+   MENSAJES
+========================= */
+
+function showError(id, message) {
+
+    const element =
+        document.getElementById(id);
+
+    element.textContent =
+        message;
+
+    element.classList.add("show");
+}
+
+
+function showSuccess(id, message) {
+
+    const element =
+        document.getElementById(id);
+
+    element.textContent =
+        message;
+
+    element.classList.add("show");
+}
+
+
+function hideMessage(id) {
+
+    const element =
+        document.getElementById(id);
+
+    element.textContent = "";
+
+    element.classList.remove("show");
+}
+
+
+/* =========================
+   ERRORES DEL API
+========================= */
+
+async function getApiError(response) {
+
+    try {
+
+        const data =
+            await response.json();
+
+        if (data.detail) {
+
+            if (Array.isArray(data.detail)) {
+
+                return data.detail
+                    .map(item => item.msg)
+                    .join(", ");
+            }
+
+            return data.detail;
+        }
+
+        if (data.message) {
+            return data.message;
+        }
+
+    } catch {}
+
+    return `Error del servidor (${response.status}).`;
+}
+
+
+/* =========================
+   FORMULARIOS
+========================= */
+
+function showRegister() {
+
+    document
+        .getElementById("loginForm")
+        .classList.remove("active");
+
+    document
+        .getElementById("registerForm")
+        .classList.add("active");
+
+    hideMessage("loginError");
+    hideMessage("loginSuccess");
+}
+
+
+function showLogin() {
+
+    document
+        .getElementById("registerForm")
+        .classList.remove("active");
+
+    document
+        .getElementById("loginForm")
+        .classList.add("active");
+
+    hideMessage("registerError");
+    hideMessage("registerSuccess");
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+document
+    .getElementById("profilePicture")
+    .addEventListener(
+        "change",
+        function () {
+
+            const file =
+                this.files[0];
+
+            if (!file) {
+                return;
+            }
+
+            const allowed = [
+                "image/jpeg",
+                "image/png",
+                "image/webp",
+                "image/gif"
+            ];
+
+            if (
+                !allowed.includes(file.type)
+            ) {
+
+                showError(
+                    "registerError",
+                    "La imagen debe ser JPG, PNG, WEBP o GIF."
+                );
+
+                this.value = "";
+
+                return;
+            }
+
+            if (
+                file.size >
+                5 * 1024 * 1024
+            ) {
+
+                showError(
+                    "registerError",
+                    "La imagen no puede superar los 5 MB."
+                );
+
+                this.value = "";
+
+                return;
+            }
+
+            const reader =
+                new FileReader();
+
+            reader.onload =
+                function (event) {
+
+                    document
+                        .getElementById(
+                            "profilePreview"
+                        )
+                        .src =
+                            event.target.result;
+                };
+
+            reader.readAsDataURL(file);
+        }
+    );
+
+
+/* =========================
+   REGISTRO
+========================= */
+
+document
+    .getElementById("registerForm")
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            hideMessage("registerError");
+            hideMessage("registerSuccess");
+
+
+            const username =
+                document
+                    .getElementById(
+                        "registerUsername"
+                    )
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+            const password =
+                document
+                    .getElementById(
+                        "registerPassword"
+                    )
+                    .value;
+
+
+            const picture =
+                document
+                    .getElementById(
+                        "profilePicture"
+                    )
+                    .files[0];
+
+
+            if (
+                !/^[a-zA-Z0-9_.-]{3,32}$/
+                    .test(username)
+            ) {
+
+                showError(
+                    "registerError",
+                    "El nombre de usuario solo puede contener letras, números, _, - y ."
+                );
+
+                return;
+            }
+
+
+            if (!picture) {
+
+                showError(
+                    "registerError",
+                    "Selecciona una foto de perfil."
+                );
+
+                return;
+            }
+
+
+            const formData =
+                new FormData();
+
+            formData.append(
+                "username",
+                username
+            );
+
+            formData.append(
+                "password",
+                password
+            );
+
+            formData.append(
+                "profile_picture",
+                picture
+            );
+
+
+            this.style.opacity = ".6";
+            this.style.pointerEvents = "none";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_URL}/api/register`,
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    showError(
+                        "registerError",
+                        await getApiError(response)
+                    );
+
+                    return;
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                localStorage.setItem(
+                    TOKEN_KEY,
+                    data.token
+                );
+
+                localStorage.setItem(
+                    USER_KEY,
+                    JSON.stringify(
+                        data.user
+                    )
+                );
+
+
+                if (
+                    redirectAfterLogin()
+                ) {
+
+                    return;
+                }
+
+
+                showSuccess(
+                    "registerSuccess",
+                    "Cuenta creada correctamente."
+                );
+
+
+            } catch {
+
+                showError(
+                    "registerError",
+                    "No se pudo conectar con el servidor."
+                );
+
+            } finally {
+
+                this.style.opacity = "";
+                this.style.pointerEvents = "";
+            }
+
+        }
+    );
+
+
+/* =========================
+   LOGIN
+========================= */
+
+document
+    .getElementById("loginForm")
+    .addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            hideMessage("loginError");
+            hideMessage("loginSuccess");
+
+
+            const username =
+                document
+                    .getElementById(
+                        "loginUsername"
+                    )
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+            const password =
+                document
+                    .getElementById(
+                        "loginPassword"
+                    )
+                    .value;
+
+
+            const formData =
+                new FormData();
+
+
+            formData.append(
+                "username",
+                username
+            );
+
+            formData.append(
+                "password",
+                password
+            );
+
+
+            this.style.opacity = ".6";
+            this.style.pointerEvents = "none";
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_URL}/api/login`,
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    showError(
+                        "loginError",
+                        await getApiError(response)
+                    );
+
+                    return;
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                localStorage.setItem(
+                    TOKEN_KEY,
+                    data.token
+                );
+
+                localStorage.setItem(
+                    USER_KEY,
+                    JSON.stringify(
+                        data.user
+                    )
+                );
+
+
+                /*
+                   FUNCIÓN 5:
+                   Volver a la aplicación
+                   que abrió Accounts.
+                */
+
+                if (
+                    redirectAfterLogin()
+                ) {
+
+                    return;
+                }
+
+
+                showSuccess(
+                    "loginSuccess",
+                    "Sesión iniciada correctamente."
+                );
+
+
+            } catch {
+
+                showError(
+                    "loginError",
+                    "No se pudo conectar con el servidor."
+                );
+
+            } finally {
+
+                this.style.opacity = "";
+                this.style.pointerEvents = "";
+            }
+
+        }
+    );
+
+
+/* =========================
+   PRIVACIDAD / TÉRMINOS / AYUDA
+========================= */
+
+function openInfo(type) {
+
+    const title =
+        document.getElementById(
+            "infoTitle"
+        );
+
+    const text =
+        document.getElementById(
+            "infoText"
+        );
+
+
+    if (type === "privacy") {
+
+        title.textContent =
+            "Privacidad";
+
+        text.textContent =
+            "Kn Foundation Account utiliza la información necesaria para mantener tu cuenta, como tu nombre de usuario, contraseña protegida y foto de perfil.";
+
+    }
+
+
+    if (type === "terms") {
+
+        title.textContent =
+            "Términos";
+
+        text.textContent =
+            "Al utilizar Kn Foundation Account aceptas utilizar el servicio de forma responsable.";
+
+    }
+
+
+    if (type === "help") {
+
+        title.textContent =
+            "Ayuda";
+
+        text.textContent =
+            "Utiliza tu nombre de usuario y contraseña para iniciar sesión. Los errores aparecerán directamente debajo del formulario.";
+
+    }
+
+
+    document
+        .getElementById(
+            "infoModal"
+        )
+        .classList.add("show");
+}
+
+
+function closeInfo() {
+
+    document
+        .getElementById(
+            "infoModal"
+        )
+        .classList.remove("show");
+}
+
+
+function closeInfoOutside(event) {
+
+    if (
+        event.target ===
+        document.getElementById(
+            "infoModal"
+        )
+    ) {
+
+        closeInfo();
+    }
+}
+
+
+/* =========================
+   SESIÓN EXISTENTE
+========================= */
+
+async function checkExistingSession() {
+
+    const token =
+        localStorage.getItem(
+            TOKEN_KEY
+        );
+
+
+    if (!token) {
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/api/me`,
+                {
+                    headers: {
+                        Authorization:
+                            "Bearer " + token
+                    }
+                }
+            );
+
+
+        if (!response.ok) {
+
+            localStorage.removeItem(
+                TOKEN_KEY
+            );
+
+            localStorage.removeItem(
+                USER_KEY
+            );
+
+            return;
+        }
+
+
+        const data =
+            await response.json();
+
+
+        localStorage.setItem(
+            USER_KEY,
+            JSON.stringify(
+                data.user
+            )
+        );
+
+
+        /*
+           Si ya hay una sesión válida
+           y Accounts fue abierto por
+           otra aplicación, volvemos a ella.
+        */
+
+        redirectAfterLogin();
+
+
+    } catch {
+
+        /*
+           Si el servidor no responde,
+           dejamos la pantalla de login.
+        */
+
+    }
+}
+
+
+checkExistingSession();
+
+</script>
+
+
+</body></html>
